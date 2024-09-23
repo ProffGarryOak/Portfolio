@@ -14,7 +14,7 @@ function App() {
 	const projectsRef = useRef(null);
 
 	useEffect(() => {
-		document.body.style.backgroundColor = "#212121";
+		document.body.style.backgroundColor = "#fff";
 
 		const timer = setTimeout(() => {
 			setTimerDone(true);
