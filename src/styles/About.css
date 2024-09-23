@@ -1,0 +1,65 @@
+/* src/styles/About.css */
+.about-section {
+	/* Cover full viewport height */
+	width: 100vw; /* Cover full viewport width */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	margin-bottom: 10vh; /* Prevent overflow if the VANTA effect extends beyond the container */
+}
+
+.about-content {
+	display: flex;
+	align-items: center;
+	gap: 2rem; /* Adjust spacing between text and image */
+	position: relative;
+	z-index: 2; /* Ensure content is above the VANTA effect */
+}
+
+.about-text {
+	max-width: 600px;
+	color: #000; /* Ensure text color contrasts with the background */
+}
+.about-image {
+	position: relative; /* Position context for the pseudo-element */
+	display: inline-block; /* Ensure the container only takes up the space of its content */
+}
+
+.about-image img {
+	max-width: 100%;
+	height: auto;
+	clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+	position: relative;
+	z-index: 1; /* Ensure the main image is above the pseudo-element */
+}
+
+.about-image::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -15%; /* Adjust to position the hexagon to the right of the main image */
+	transform: translateY(-50%);
+	width: 100%; /* Same size as the main image */
+	height: 100%; /* Same size as the main image */
+	clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+	background: linear-gradient(
+		#000 0%,
+		#111 12.5%,
+		#222 25%,
+		#333 37.5%,
+		#555 50%,
+		#333 62.5%,
+		#222 75%,
+		#111 87.5%,
+		#000 100%
+	);
+
+	z-index: 0;
+	transition: background-position 0.8s ease; /* Smooth transition for background position */
+	background-size: 200% 200%; /* Double the size for smooth movement */
+	background-position: 0% 0%;
+}
+.about-image:hover::after {
+	background-position: 100% 100%; /* Move gradient on hover */
+}

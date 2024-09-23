@@ -1,0 +1,70 @@
+.button {
+	line-height: 1;
+	text-decoration: none;
+	display: inline-flex;
+	border: none;
+	cursor: pointer;
+	align-items: center;
+	gap: 0.75rem;
+	background-color: black; /* Default color */
+	color: #fff; /* Default text color */
+	border-radius: 10rem;
+	font-weight: 600;
+	padding: 0.75rem 1.5rem;
+	padding-left: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: background-color 0.3s, color 0.3s;
+	/* Added transition for text color */
+}
+
+.button__icon-wrapper {
+	flex-shrink: 0;
+	width: 25px;
+	height: 25px;
+	position: relative;
+	color: black; /* Default icon color */
+	background-color: #fff;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+}
+
+.button:hover {
+	background-color: #fcc008; /* Hover color */
+	color: black; /* Text color on hover */
+}
+
+.button:hover .button__icon-wrapper {
+	color: black; /* Icon color on hover */
+}
+
+.button__icon-svg--copy {
+	position: absolute;
+	transform: translate(-150%, 150%);
+}
+
+.button:hover .button__icon-svg:first-child {
+	transition: transform 0.3s ease-in-out;
+	transform: translate(150%, -150%);
+}
+
+.button:hover .button__icon-svg--copy {
+	transition: transform 0.3s ease-in-out 0.1s;
+	transform: translate(0);
+}
+
+@media (max-width: 768px) {
+	.button {
+		font-size: 1.2rem;
+		padding: 1rem 2rem;
+		padding-left: 24px;
+	}
+
+	.button__icon-wrapper {
+		width: 30px;
+		height: 30px;
+	}
+}
